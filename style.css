@@ -1,0 +1,557 @@
+:root {
+    --light-bg: #F8F8F8;
+    --light-text: #333333;
+    --light-card-bg: #E0E0E0;
+    --light-card-border: #B0B0B0;
+    --light-input-bg: #E0E0E0;
+    --light-input-text: #333333;
+    --light-input-border: #B0B0B0;
+
+    --dark-bg: #1A1A1A;
+    --dark-text: #E0E0E0;
+    --dark-card-bg: #2C2C2C;
+    --dark-card-border: #4A4A4A;
+    --dark-input-bg: #3A3A3A;
+    --dark-input-text: #E0E0E0;
+    --dark-input-border: #4A4A4A;
+
+    --color-grass-green: #4CAF50;
+    --color-light-green-accent: #6CBF6C;
+    --color-dark-green-border: #3F603F;
+    --color-gold-accent: #FFD700;
+    --color-dark-stone-primary: #2C2C2C;
+    --color-dark-stone-border: #3A3A3A;
+    --color-wood-plank: #8B5E3A;
+    --color-dark-wood-border: #6B4D30;
+
+    /* Define header height as a CSS variable */
+    --header-height: 50px;
+    /* Adjust this value if your header height changes (p-4 + vertical padding) */
+
+    /* New variables for verified tooltip */
+    --verified-tooltip-bg: #4CAF50;
+    /* Grass Green */
+    --verified-tooltip-border: #3F603F;
+    /* Dark Green Border */
+    --verified-tooltip-text: #FFFFFF;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* This property accounts for fixed header height when scrolling to anchors */
+    scroll-padding-top: var(--header-height);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--light-bg);
+    color: var(--light-text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Press Start 2P', cursive;
+    color: var(--color-grass-green);
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* Header Gradient */
+.bg-primary-dark {
+    background: linear-gradient(to right, var(--dark-card-bg), var(--dark-card-border));
+    /* Dark gradient */
+    color: var(--dark-text);
+}
+
+.border-primary-dark {
+    border-color: var(--color-dark-stone-border);
+}
+
+.text-accent-gold {
+    color: var(--color-gold-accent);
+}
+
+.text-accent-green {
+    color: var(--color-light-green-accent);
+}
+
+/* Text Gradient */
+.gradient-text {
+    background-image: linear-gradient(to right, var(--color-gold-accent), var(--color-light-green-accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    /* Fallback for browsers that don't support text-fill-color */
+}
+
+.minecraft-bg-pattern {
+    background-image: url('images/about_bg_light.png');
+    background-size: cover;
+    /* Changed to cover */
+    background-repeat: no-repeat;
+    /* Changed to no-repeat */
+    background-position: center;
+    /* Added to center the image */
+}
+
+/* Button Gradients */
+.btn-minecraft {
+    border: 3px solid var(--color-dark-wood-border);
+    background-image: linear-gradient(to right, var(--color-wood-plank), #a07a50);
+    /* Wood gradient */
+    color: #ffffff;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s ease-in-out;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+.btn-minecraft:hover {
+    background-image: linear-gradient(to left, var(--color-wood-plank), #a07a50);
+    /* Reverse gradient on hover */
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+.btn-minecraft-accent {
+    border: 3px solid var(--color-dark-green-border);
+    background-image: linear-gradient(to right, var(--color-light-green-accent), #8fd18f);
+    /* Green accent gradient */
+    color: var(--light-text);
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+    transition: all 0.2s ease-in-out;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+.btn-minecraft-accent:hover {
+    background-image: linear-gradient(to left, var(--color-light-green-accent), #8fd18f);
+    /* Reverse gradient on hover */
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+#hero .bg-cover {
+    background-image: url('images/Hero_bg_light.png');
+    /* Light theme default */
+}
+
+body.dark-mode #hero .bg-cover {
+    background-image: url('images/Hero_bg_dark.png');
+    /* Dark theme */
+}
+
+.card-minecraft {
+    background-color: var(--light-card-bg);
+    border: 3px solid var(--light-card-border);
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease-in-out;
+    color: var(--light-text);
+}
+
+.card-minecraft:hover {
+    transform: translate(-7px, -7px);
+    box-shadow: 12px 12px 0px rgba(0, 0, 0, 0.6);
+}
+
+.img-placeholder-minecraft {
+    background-color: var(--light-card-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light-text);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5rem;
+    text-align: center;
+    border: 2px dashed var(--color-grass-green);
+    min-height: 200px;
+}
+
+input,
+textarea {
+    background-color: var(--light-input-bg);
+    color: var(--light-input-text);
+    border: 1px solid var(--light-input-border);
+    outline: none;
+    box-shadow: none;
+}
+
+input:focus,
+textarea:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 2px var(--color-light-green-accent);
+}
+
+/* Ensure text inside contact form defaults to light-text */
+#contact p,
+#contact label {
+    /* Target relevant text elements in contact section */
+    color: var(--light-text);
+}
+
+/* Review section specific text and star colors for light mode */
+#testimonials label,
+#testimonials .star-icon {
+    color: var(--color-grass-green);
+    /* Changed to green for readability in light mode */
+}
+
+/* Ensure filled stars are also green in light mode */
+#testimonials .star-icon.fas {
+    color: var(--color-grass-green);
+}
+
+
+body.dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+    color: var(--color-gold-accent);
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .bg-primary-dark {
+    background-color: var(--color-dark-stone-primary);
+    color: var(--dark-text);
+}
+
+body.dark-mode .border-primary-dark {
+    border-color: var(--color-dark-stone-border);
+}
+
+body.dark-mode .text-accent-gold {
+    color: var(--color-gold-accent);
+}
+
+body.dark-mode .text-accent-green {
+    color: var(--color-light-green-accent);
+}
+
+body.dark-mode .minecraft-bg-pattern {
+    background-image: url('images/about_bg_dark.jpeg');
+}
+
+body.dark-mode .btn-minecraft {
+    border: 3px solid var(--color-dark-wood-border);
+    background-image: linear-gradient(to right, var(--color-wood-plank), #a07a50);
+    /* Dark wood gradient */
+    color: #ffffff;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .btn-minecraft:hover {
+    background-image: linear-gradient(to left, var(--color-wood-plank), #a07a50);
+    /* Reverse dark wood gradient on hover */
+}
+
+body.dark-mode .btn-minecraft-accent {
+    border: 3px solid var(--color-dark-green-border);
+    background-image: linear-gradient(to right, var(--color-light-green-accent), #8fd18f);
+    /* Dark green accent gradient */
+    color: var(--light-text);
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .btn-minecraft-accent:hover {
+    background-image: linear-gradient(to left, var(--color-light-green-accent), #8fd18f);
+    /* Reverse dark green accent gradient on hover */
+}
+
+body.dark-mode .card-minecraft {
+    background-color: var(--dark-card-bg);
+    border: 3px solid var(--dark-card-border);
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.5);
+    color: var(--dark-text);
+    /* Added to ensure text color in dark mode */
+}
+
+body.dark-mode .card-minecraft:hover {
+    transform: translate(-7px, -7px);
+    box-shadow: 12px 12px 0px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .img-placeholder-minecraft {
+    background-color: var(--dark-card-border);
+    color: var(--dark-text);
+    border: 2px dashed var(--color-light-green-accent);
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+    background-color: var(--dark-input-bg);
+    color: var(--dark-input-text);
+    border: 1px solid var(--dark-input-border);
+    outline: none;
+    box-shadow: none;
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 2px var(--color-light-green-accent);
+}
+
+/* Ensure text inside contact form in dark mode */
+body.dark-mode #contact p,
+body.dark-mode #contact label {
+    color: var(--dark-text);
+}
+
+/* Review section specific text and star colors for dark mode */
+body.dark-mode #testimonials label,
+body.dark-mode #testimonials .star-icon {
+    color: var(--color-gold-accent);
+    /* Keep yellow for dark mode */
+}
+
+/* Ensure filled stars are also gold in dark mode */
+body.dark-mode #testimonials .star-icon.fas {
+    color: var(--color-gold-accent);
+}
+
+
+#testimonials {
+    background-image: url('images/Review_bg_light.jpg');
+    /* Light mode background */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body.dark-mode #testimonials {
+    background-image: url('images/Review_bg_dark.jpeg');
+    /* Dark mode background */
+}
+
+#theme-toggle {
+    background-color: #4a4a4a;
+    color: #ffffff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#theme-toggle:hover {
+    background-color: #5a5a5a;
+    transform: translateY(-1px);
+}
+
+#theme-toggle i {
+    font-size: 1.2rem;
+}
+
+/* Base styles for animated elements - initially hidden */
+.animated-element {
+    opacity: 0;
+    transform: translateY(20px);
+    /* Default for fade-in-up */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Specific overrides for left/right animations */
+.animated-element.animation-fade-in-left {
+    transform: translateX(-20px);
+}
+
+.animated-element.animation-fade-in-right {
+    transform: translateX(20px);
+}
+
+/* Pulse animation starts immediately on load (hero section) */
+.animated-element.animation-pulse {
+    opacity: 1;
+    /* Pulse doesn't start from 0 opacity */
+    transform: translateY(0);
+    /* Ensure no initial translateY */
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Class added by JS to trigger animation on scroll */
+.animated-element.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    /* These properties will be applied by JS for delay */
+    /* animation-delay: var(--animation-delay, 0s); */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Verification Badge Tooltip */
+.verification-tooltip {
+    /* Base styles for the tooltip */
+    background-color: var(--dark-card-bg);
+    border: 2px solid var(--dark-card-border);
+    box-shadow: 4px 4px 0px 0px var(--dark-card-border);
+    color: var(--dark-text);
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    /* text-sm */
+    border-radius: 0.375rem;
+    /* rounded-md */
+    z-index: 10;
+    /* Position above the icon */
+    position: absolute;
+    /* Ensure it's absolute for positioning */
+    bottom: calc(100% + 10px);
+    /* Adjust 10px for spacing between icon and tooltip */
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    pointer-events: none;
+    /* Allows clicks to pass through to the icon */
+    opacity: 0;
+    transition: opacity 0.3s ease, bottom 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    /* Smooth fade in/out and slight slide */
+}
+
+/* Add a pseudo-element for the tooltip arrow */
+.verification-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    /* At the bottom of the tooltip */
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--dark-card-border) transparent transparent transparent;
+    /* Arrow color points downwards */
+    margin-top: -2px;
+    /* Adjust to align with border */
+    transition: border-color 0.3s ease;
+}
+
+/* When parent relative div is hovered, show the tooltip */
+.relative:hover .verification-tooltip {
+    opacity: 1;
+    bottom: calc(100% + 15px);
+    /* Slightly move up on hover for effect */
+}
+
+/* Verified state for tooltip */
+.verification-tooltip.is-verified {
+    background-color: var(--verified-tooltip-bg);
+    border-color: var(--verified-tooltip-border);
+    color: var(--verified-tooltip-text);
+}
+
+.verification-tooltip.is-verified::after {
+    border-color: var(--verified-tooltip-border) transparent transparent transparent;
+}
+
+
+/* Dark mode specific styles for the tooltip */
+body.dark-mode .verification-tooltip {
+    background-color: var(--dark-card-bg);
+    border-color: var(--dark-card-border);
+    color: var(--dark-text);
+}
+
+body.dark-mode .verification-tooltip::after {
+    border-color: var(--dark-card-border) transparent transparent transparent;
+}
+
+/* Dark mode verified state for tooltip */
+body.dark-mode .verification-tooltip.is-verified {
+    background-color: var(--verified-tooltip-bg);
+    border-color: var(--verified-tooltip-border);
+    color: var(--verified-tooltip-text);
+}
+
+body.dark-mode .verification-tooltip.is-verified::after {
+    border-color: var(--verified-tooltip-border) transparent transparent transparent;
+}
+
+/* Rating System Styles */
+.star-icon {
+    transition: color 0.2s ease;
+}
+
+/* Input/Textarea Styles (for input-minecraft class) */
+.input-minecraft {
+    background-color: var(--light-input-bg);
+    border: 2px solid var(--light-input-border);
+    color: var(--light-input-text);
+    box-shadow: 4px 4px 0px 0px var(--light-input-border);
+    transition: all 0.2s ease;
+}
+
+.input-minecraft:focus {
+    outline: none;
+    border-color: var(--accent-green);
+    box-shadow: 4px 4px 0px 0px var(--accent-green);
+}
+
+body.dark-mode .input-minecraft {
+    background-color: var(--dark-input-bg);
+    border-color: var(--dark-input-border);
+    color: var(--dark-input-text);
+    box-shadow: 4px 4px 0px 0px var(--dark-input-border);
+}
+
+body.dark-mode .input-minecraft:focus {
+    border-color: var(--accent-green);
+    box-shadow: 4px 4px 0px 0px var(--accent-green);
+}
