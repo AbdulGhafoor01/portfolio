@@ -1,4 +1,65 @@
+// Add this new section of code to the end of your script.js file
 
+document.addEventListener('DOMContentLoaded', () => {
+    // Other existing code...
+
+    // --- Project Carousel Logic ---
+    const projectCarousel = document.getElementById('project-carousel');
+    const scrollLeftBtn = document.getElementById('scroll-left');
+    const scrollRightBtn = document.getElementById('scroll-right');
+
+    // Function to check and update button visibility
+    function updateButtonVisibility() {
+        // Check if there's any overflow
+        const isOverflowing = projectCarousel.scrollWidth > projectCarousel.clientWidth;
+
+        if (!isOverflowing) {
+            scrollLeftBtn.classList.add('hidden');
+            scrollRightBtn.classList.add('hidden');
+            return;
+        }
+
+        // Left button visibility
+        if (projectCarousel.scrollLeft === 0) {
+            scrollLeftBtn.classList.add('hidden');
+        } else {
+            scrollLeftBtn.classList.remove('hidden');
+        }
+
+        // Right button visibility
+        if (projectCarousel.scrollLeft + projectCarousel.clientWidth >= projectCarousel.scrollWidth - 1) {
+            scrollRightBtn.classList.add('hidden');
+        } else {
+            scrollRightBtn.classList.remove('hidden');
+        }
+    }
+
+    // Scroll right
+    scrollRightBtn.addEventListener('click', () => {
+        const scrollAmount = projectCarousel.querySelector('.card-minecraft').offsetWidth + 40; // Card width + gap
+        projectCarousel.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+        setTimeout(updateButtonVisibility, 500); // Check visibility after scroll animation
+    });
+
+    // Scroll left
+    scrollLeftBtn.addEventListener('click', () => {
+        const scrollAmount = projectCarousel.querySelector('.card-minecraft').offsetWidth + 40; // Card width + gap
+        projectCarousel.scrollBy({
+            left: -scrollAmount,
+            behavior: 'smooth'
+        });
+        setTimeout(updateButtonVisibility, 500); // Check visibility after scroll animation
+    });
+
+    // Event listener for scroll to update button visibility
+    projectCarousel.addEventListener('scroll', updateButtonVisibility);
+
+    // Initial check on load
+    updateButtonVisibility();
+});
 // Your Firebase configuration object
 const firebaseConfig = {
     apiKey: "AIzaSyAFiYdI-Ln-Q0mkLbjmWBt588dAhH2-wWc",
