@@ -575,3 +575,9 @@ body.dark-mode .input-minecraft:focus {
     overflow-y: auto;
     margin-bottom: 1rem;
 }
+
+.card-minecraft img {
+    width: 325px;
+    height: 325px;
+    object-fit: cover;
+}
