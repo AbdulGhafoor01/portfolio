@@ -555,3 +555,23 @@ body.dark-mode .input-minecraft:focus {
     border-color: var(--accent-green);
     box-shadow: 4px 4px 0px 0px var(--accent-green);
 }
+
+/* Hide scrollbar for the project carousel */
+#project-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+#project-carousel {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+/* Add this new rule to your style.css file */
+.content-container {
+    max-height: 120px;
+    /* Adjust this value as needed */
+    overflow-y: auto;
+    margin-bottom: 1rem;
+}
